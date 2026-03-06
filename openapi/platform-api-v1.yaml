@@ -1,0 +1,23 @@
+openapi: 3.0.0
+info:
+  title: Platform API v1
+  version: 1.0.0
+description: Standardized API definitions for AutoEcoOps platforms.
+servers:
+  - url: https://api.autoecoops.com/v1
+paths:
+  /health:
+    get:
+      summary: Health check endpoint
+      responses:
+        '200':
+          description: API is healthy
+components:
+  schemas:
+    Error:
+      type: object
+      properties:
+        code:
+          type: string
+        message:
+          type: string
