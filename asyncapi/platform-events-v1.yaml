@@ -1,0 +1,26 @@
+asyncapi: 2.0.0
+info:
+  title: Platform Events API
+  version: 1.0.0
+description: |-
+  This API defines the asynchronous events exchanged within the AutoEcoOps Platform.
+  It uses Kafka as the primary message broker.
+channels:
+  user.signedup:
+    publish:
+      summary: Inform about new user signups
+      operationId: userSignedUp
+      message:
+        $ref: '#/components/messages/UserSignedUp'
+components:
+  messages:
+    UserSignedUp:
+      payload:
+        type: object
+        properties:
+          userId:
+            type: string
+            format: uuid
+          timestamp:
+            type: string
+            format: date-time
